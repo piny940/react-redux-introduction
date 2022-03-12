@@ -1,0 +1,6 @@
+{
+    "[javascript]": {
+        // インデント幅を2にする
+        "editor.tabSize": 2
+    },
+}
