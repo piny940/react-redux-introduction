@@ -5,7 +5,6 @@ import "../app.css";
 export class TodoApp extends React.Component {
   render = () => {
     const { task, tasks, inputTask, addTask, resetInput } = this.props;
-    console.log(this.props);
     
     return (
       <div className="container">
