@@ -3,7 +3,7 @@ const initialState = {
   tasks: [],
 };
 
-const tasksReducer = (state = initialState, action) => {
+const tasksReducer = (state = initialState, action = "") => {
   switch (action.type) {
     case "ADD_TASK":
       return {
