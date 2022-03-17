@@ -4,14 +4,19 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reportWebVitals from './reportWebVitals';
 import tasksReducer from './reducers/tasks';
-import TodoApp from './containers/tasks'
+import TodoApp from './containers/tasks';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 
 const store = createStore(tasksReducer);
 
 ReactDOM.render(
   <Provider store={store}>
-    <TodoApp />
+    <Router basename="/expenses">
+      <Routes>
+        <Route path="/hoge" element={<TodoApp />} />
+      </Routes>
+    </Router>
   </Provider>,
   document.getElementById('root')
 );
