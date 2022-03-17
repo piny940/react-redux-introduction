@@ -15,3 +15,17 @@ export const addTask = task => ({
     task,
   },
 });
+
+export const updateData = url => (
+  async (dispatch, getState) => {
+    const response = await fetch(url);
+    const data = await response.json();
+
+    dispatch({
+      type: "UPDATE_DATA",
+      payload: {
+        data: data,
+      },
+    });
+  }
+);

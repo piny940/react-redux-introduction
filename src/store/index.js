@@ -3,7 +3,14 @@ import { applyMiddleware, combineReducers, createStore as BaseCreateStore } from
 import tasksReducer from "../reducers/tasks";
 import logger from "redux-logger";
 import storageMiddleware from "../middlewares/local-storage";
+import thunk from "redux-thunk";
 
+
+const middlewares = [
+  // logger,
+  storageMiddleware,
+  thunk,
+];
 
 const createStore = history => {
   const savedState = JSON.parse(window.localStorage.getItem('app-state'));
@@ -15,9 +22,7 @@ const createStore = history => {
     reducer,
     savedState || reducer(),
     applyMiddleware(
-      routerMiddleware(history),
-      logger,
-      storageMiddleware,
+      ...middlewares,
     )
   );
 };

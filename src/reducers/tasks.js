@@ -1,6 +1,7 @@
 const initialState = {
   task: "",
   tasks: [],
+  data: "",
 };
 
 const tasksReducer = (state = initialState, action = "") => {
@@ -19,6 +20,11 @@ const tasksReducer = (state = initialState, action = "") => {
       return {
         ...state,
         task: "",
+      };
+    case "UPDATE_DATA":
+      return {
+        ...state,
+        data: action.payload.data,
       }
     default:
       return state;

@@ -4,10 +4,23 @@ import "../app.css";
 
 export class TodoApp extends React.Component {
   render = () => {
-    const { task, tasks, inputTask, addTask, resetInput } = this.props;
+    const { task, tasks, inputTask, addTask, resetInput, updateData, data } = this.props;
     
     return (
       <div className="container">
+        <div className="container">
+          {Object.keys(data)}
+          {Object.keys(data).map(key => {
+            const value = data[key];
+            if (typeof(value) !== "object") {
+              return <div key={key}>{value}</div>;
+            }
+            else {
+              return null;
+            }
+          })}
+        </div>
+        <button onClick={() => { updateData("http://127.0.0.1:8000/api/expenses/expenses/1") }}>fetch!</button>
         <Link to="/test">testページへ</Link>
         <div>
           <input type="text" value={task} onChange={e => inputTask(e.target.value)} />
