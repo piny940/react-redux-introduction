@@ -9,16 +9,12 @@ import TodoApp from './containers/tasks'
 
 const store = createStore(tasksReducer);
 
-const renderApp = () => {
-  ReactDOM.render(
-    <Provider store={store}>
-      <TodoApp />
-    </Provider>,
-    document.getElementById('root')
-  );
-};
-
-renderApp();
+ReactDOM.render(
+  <Provider store={store}>
+    <TodoApp />
+  </Provider>,
+  document.getElementById('root')
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
