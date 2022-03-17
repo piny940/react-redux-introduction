@@ -1,20 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 import reportWebVitals from './reportWebVitals';
-import tasksReducer from './reducers/tasks';
 import TodoApp from './containers/tasks';
+import Test from './components/tasks';
+import createStore from './store/index.js';
+import { createBrowserHistory } from 'history';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 
-const store = createStore(tasksReducer);
+const history = createBrowserHistory();
+const store = createStore(history);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router basename="/expenses">
+    <Router>
       <Routes>
-        <Route path="/hoge" element={<TodoApp />} />
+        <Route index element={<TodoApp />}/>
+        <Route path="/test" element={<Test />}/>
       </Routes>
     </Router>
   </Provider>,
